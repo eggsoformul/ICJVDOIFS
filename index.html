@@ -97,5 +97,40 @@ h1 {
 		<h1>Testimonials</h1>
 		<p class='kathy'><i>"I'm scared" - Kathy Lu</i></p>
 	</div>
+
+	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+	<script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+
+		var userRef;
+		var userID;
+		var stampRef;
+		var nameRef;
+
+		var myRef = new Firebase("https://icjvdoifs.firebaseio.com/");
+
+		var authClient = new FirebaseSimpleLogin(myRef, function(error, user) {
+		    if (error) {
+		      // an error occurred while attempting login
+		      console.log(error);
+		    } else if (user) {
+		      // user authenticated with Firebase
+		      userRef = user;
+		      userID = user.uid;
+		      stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
+		      nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID);
+		      nameRef.set(user.displayName);
+		      console.log("User ID: " + user.uid + ", Provider: " + user.provider);
+		    } else {
+		      // user is logged out
+		    }
+		});
+
+		function fbookAuth() {
+			authClient.login('facebook');
+		}
+
+	</script>
 </body>
 </html>
