@@ -187,7 +187,7 @@ input {
 		<div class="thanksDiv" style="display: none;">
 			<p class="thanks">Thanks for completing the sign up. See you on Oct. 22nd for the full release!</p>
 		</div>
-		<div class="comeBackDiv center">
+		<div class="comeBackDiv center" style="display: none;">
 			<p class="comeBack">You're all set for now!</p>
 			<p class="comeBack">Visit us on Oct 22nd for our full feature release!</p>
 			<input type="submit" class='logout' value="Log Out" onclick="deAuth()">
@@ -253,10 +253,13 @@ input {
 				$(".loggedIn").show();
 				$(".regInput").show(); 
 
+				var unRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+snap.uid+"username");
+
 				//check if username already set
-				usernameRef.on("value", function(snapshot) {
-					if(snapshot) {
+				unRef.on("value", function(snapshot) {
+					if(snapshot.val()) {
   						console.log("name is "+snapshot.val());
+  						showLaterMessage();
 					} else {
 						console.log("no username found");
 					}
@@ -275,6 +278,11 @@ input {
 		usernameRef.set($("#usernameInput").val());
 		$(".usernameDiv").hide();
 		$(".thanksDiv").show();
+	}
+
+	function showLaterMessage() {
+		$(".usernameDiv").hide();
+		$(".comeBackDiv").show();
 	}
 
 	</script>
