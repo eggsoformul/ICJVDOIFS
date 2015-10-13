@@ -117,8 +117,29 @@ input {
 	color: rgb(216, 116, 67);
 }
 
+.comeBackDiv {
+	margin-left: 10vw;
+	margin-right: 10vw;
+	color: rgb(216,116,67);
+}
+
 #usernameSubmit{
 	cursor: pointer;
+}
+
+.at4-share-title{
+	font-size: 12pt;
+}
+
+.logout {
+	margin-bottom: 10vh;
+	cursor: pointer;
+	color: rgba(250,0,0,0.7);
+	border-style: solid;
+	border-width: 4px;
+	border-radius: 8px;
+	border-color: rgba(250,0,0,0.7);
+	padding: 8px 8px 8px 8px;
 }
 
 </style>
@@ -165,6 +186,11 @@ input {
 		</div>
 		<div class="thanksDiv" style="display: none;">
 			<p class="thanks">Thanks for completing the sign up. See you on Oct. 22nd for the full release!</p>
+		</div>
+		<div class="comeBackDiv center">
+			<p class="comeBack">You're all set for now!</p>
+			<p class="comeBack">Visit us on Oct 22nd for our full feature release!</p>
+			<input type="submit" class='logout' value="Log Out" onclick="deAuth()">
 		</div>
 	</div>
 
@@ -228,10 +254,9 @@ input {
 				$(".regInput").show(); 
 
 				//check if username already set
-				console.log("ID is "+usernameRef.val());
 				usernameRef.on("value", function(snapshot) {
 					if(snapshot) {
-  						console.log(snapshot.val());
+  						console.log("name is "+snapshot.val());
 					} else {
 						console.log("no username found");
 					}
