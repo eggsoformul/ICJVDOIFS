@@ -245,7 +245,7 @@ input {
 
 
 
-	myRef.on("value", function(snap) {
+	myRef.onAuth(function(snap) {
 		$(document).ready(function() {
 			if (snap.val() === true) {
 				console.log("snapval is"+ JSON.stringify(snap.val()));
