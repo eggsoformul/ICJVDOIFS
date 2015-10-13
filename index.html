@@ -152,7 +152,7 @@ input {
 
 		<div class='attributionDiv'>
 			<p class='attribution'>brought to you by <a href='https://www.facebook.com/eggsoformul'>Eggs of Ormul</a></p>
-			<p class='attribution'><a href="mailto:eggsoformul@gmail.com">For inquiries: eggsoformul@gmail.com</a></p>
+			<p class='attribution'>For inquiries: <a href="mailto:eggsoformul@gmail.com">eggsoformul@gmail.com</a></p>
 		</div>
 	</div>
 	<div class="loggedIn" style="display: none;">
@@ -207,9 +207,9 @@ input {
 					console.log("Authenticated successfully with payload:", authData);
 					user = authData;
 					userID = authData.uid;
-					stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
-					nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID+'/name');
-					usernameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID+'/username');
+					stampRef = new Firebase("https://icjvdoifs.firebaseio.com/userTimes/"+userID);
+					nameRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+userID+"/name");
+					usernameRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+userID+"/username");
 					nameRef.set(authData.facebook.displayName);
 					console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
 				}
@@ -222,34 +222,34 @@ input {
 	authRef.on("value", function(snap) {
 		$(document).ready(function() {
 			if (snap.val() === true) {
-				console.log('logged in');
-				$('.loggedOut').hide();
-				$('.loggedIn').show();
-				$('.regInput').show(); 
+				console.log("logged in");
+				$(".loggedOut").hide();
+				$(".loggedIn").show();
+				$(".regInput").show(); 
 
 				//check if username already set
-				console.log('ID is '+usernameRef.val());
+				console.log("ID is "+usernameRef.val());
 				usernameRef.on("value", function(snapshot) {
 					if(snapshot) {
   						console.log(snapshot.val());
 					} else {
-						console.log('no username found');
+						console.log("no username found");
 					}
-				}
+				});
 			} else {
-				console.log('not logged in');
-				$('.loggedIn').hide();
-				$('.loggedOut').show();
-				$('.regInput').hide();
+				console.log("not logged in");
+				$(".loggedIn").hide();
+				$(".loggedOut").show();
+				$(".regInput").hide();
 			}
 		});
 	});
 
 	function submitUsername() {
-		console.log('pressed');
-		usernameRef.set($('#usernameInput').val());
-		$('.usernameDiv').hide();
-		$('.thanksDiv').show();
+		console.log("pressed");
+		usernameRef.set($("#usernameInput").val());
+		$(".usernameDiv").hide();
+		$(".thanksDiv").show();
 	}
 
 	</script>
