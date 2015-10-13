@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Inter-Christian Junior Varsity Denominated Online Intentional Fellowship Service</title>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
 <link type="image/png" rel="icon" href="img/beach.jpg">
 <style>
 html, body {
@@ -249,7 +249,8 @@ input {
 	authRef.on("value", function(snap) {
 		$(document).ready(function() {
 			if (snap.val() === true) {
-				console.log('uid is'+snap.val().uid);
+				console.log("snapval is"+ JSON.stringify(snap.val());
+				console.log("uid is"+snap.val().uid);
 				var unRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+snap.uid+"username");
 
 				//check if username already set
