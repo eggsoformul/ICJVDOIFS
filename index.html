@@ -89,6 +89,23 @@ h1 {
 	font-size: 24pt;
 }
 
+.usernameDiv {
+	position: absolute;
+	top: 40vh;
+	left: 30vw;
+}
+
+input {
+	font-size: 32pt;
+	border-style: solid;
+	border-color: #ffffff;
+	border-width: 8px;
+	border-radius: 8px;
+	background-color: #ffffff;
+	font-family: Roboto, Arial;
+	color: rgb(216, 116, 67);
+}
+
 </style>
 
 </head>
@@ -122,12 +139,15 @@ h1 {
 			<p class='attribution'>brought to you by <a href='https://www.facebook.com/eggsoformul'>Eggs of Ormul</a></p>
 		</div>
 	</div>
-	<div class='loggedIn'>
-		<div class='usernameDiv'>
-			<input type="text" id="usernameInput" placeholder="Choose a username" />
-			<input type="submit" onlick="submitUsername" />
+	<div class="loggedIn" style="display='none'">
+      	<div class="jumbo center">
+  			<p class="headline">Set up your account</p>
+      </div>
+		<div class="usernameDiv">
+			<input type="text" id="usernameInput" placeholder="Choose a username">
+			<input type="submit" onlick="submitUsername">
 		</div>
-		<div class='thanksDiv'></div>
+		<div class="thanksDiv"></div>
 	</div>
 
 
