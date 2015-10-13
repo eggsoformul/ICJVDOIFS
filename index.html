@@ -225,6 +225,9 @@ input {
 				$('.loggedOut').hide();
 				$('.loggedIn').show();
 				$('.regInput').show(); 
+
+				//check if username already set
+				console.log('ID is '+usernameRef.val());
 			} else {
 				console.log('not logged in');
 				$('.loggedIn').hide();
