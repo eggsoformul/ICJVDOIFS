@@ -161,7 +161,7 @@ h1 {
 					userID = authData.uid;
 					stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
 					nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID);
-					nameRef.set(authData.displayName);
+					nameRef.set(authData.facebook.displayName);
 					console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
 				}
 			});
