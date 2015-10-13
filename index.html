@@ -249,7 +249,7 @@ input {
 		$(document).ready(function() {
 			if (snap) {
 				console.log("uid is"+snap.uid);
-				var unRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+snap.uid+"username");
+				var unRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+snap.uid+"/username");
 
 				//check if username already set
 				unRef.on("value", function(snapshot) {
