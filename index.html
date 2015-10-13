@@ -181,12 +181,12 @@ h1 {
 	authRef.on("value", function(snap) {
 		$(document).ready(function() {
 			if (snap.val() === true) {
-				$('.authStatus').text('Logged In');
+				console.log('logged in');
 				$('.loggedOut').hide();
 				$('.loggedIn').show();
 				$('.regInput').show(); 
 			} else {
-				$('.authStatus').text('Please Log In');
+				console.log('not logged in');
 				$('.loggedIn').hide();
 				$('.loggedOut').show();
 				$('.regInput').hide();
