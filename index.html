@@ -171,6 +171,7 @@ input {
 		var userID;
 		var stampRef;
 		var nameRef;
+		var usernameRef;
 
 		var myRef = new Firebase("https://icjvdoifs.firebaseio.com/");
 
@@ -201,6 +202,7 @@ input {
 					userID = authData.uid;
 					stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
 					nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID+'/name');
+					usernameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID+'/username');
 					nameRef.set(authData.facebook.displayName);
 					console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
 				}
@@ -227,10 +229,9 @@ input {
 	});
 
 	function submitUsername() {
-		usernameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID+'/username');
 		usernameRef.set($('#usernameInput').val());
-		$('usernameDiv').hide();
-		$('thanksDiv').show();
+		$('.usernameDiv').hide();
+		$('.thanksDiv').show();
 	}
 
 	</script>
