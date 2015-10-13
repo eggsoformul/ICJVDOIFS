@@ -118,10 +118,9 @@ h1 {
 
 
 	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
 
-		var userRef;
+		var user;
 		var userID;
 		var stampRef;
 		var nameRef;
@@ -151,12 +150,12 @@ h1 {
 					console.log("Login Failed!", error);
 				} else {
 					console.log("Authenticated successfully with payload:", authData);
-					userRef = user;
-					userID = user.uid;
+					user = authData;
+					userID = authData.uid;
 					stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
 					nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID);
-					nameRef.set(user.displayName);
-					console.log("User ID: " + user.uid + ", Provider: " + user.provider);
+					nameRef.set(authData.displayName);
+					console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
 				}
 			});
 		}
