@@ -179,17 +179,19 @@ h1 {
 
 	var authRef = new Firebase("https://WhereIsWaldo.firebaseio.com/.info/authenticated");
 	authRef.on("value", function(snap) {
-		if (snap.val() === true) {
-			$('.authStatus').text('Logged In');
-			$('.loggedOut').hide();
-			$('.loggedIn').show();
-			$('.regInput').show(); 
-		} else {
-			$('.authStatus').text('Please Log In');
-			$('.loggedIn').hide();
-			$('.loggedOut').show();
-			$('.regInput').hide();
-		}
+		$(document).ready(function() {
+			if (snap.val() === true) {
+				$('.authStatus').text('Logged In');
+				$('.loggedOut').hide();
+				$('.loggedIn').show();
+				$('.regInput').show(); 
+			} else {
+				$('.authStatus').text('Please Log In');
+				$('.loggedIn').hide();
+				$('.loggedOut').show();
+				$('.regInput').hide();
+			}
+		});
 	});
 
 	</script>
