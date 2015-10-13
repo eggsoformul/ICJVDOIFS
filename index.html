@@ -155,7 +155,7 @@ input {
       </div>
 		<div class="usernameDiv">
 			<input type="text" id="usernameInput" placeholder="Choose a username">
-			<input type="submit" id="usernameSubmit" onclick="submitUsername">
+			<input type="submit" id="usernameSubmit" onclick="submitUsername()">
 		</div>
 		<div class="thanksDiv" style="display: none;">
 			<p class="thanks">Thanks for completing the sign up. See you on Oct. 22nd for the full release!</p>
@@ -229,6 +229,7 @@ input {
 	});
 
 	function submitUsername() {
+		console.log('pressed');
 		usernameRef.set($('#usernameInput').val());
 		$('.usernameDiv').hide();
 		$('.thanksDiv').show();
