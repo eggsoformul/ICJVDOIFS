@@ -245,8 +245,7 @@ input {
 
 
 
-	var authRef = new Firebase("https://icjvdoifs.firebaseio.com/.info/authenticated");
-	authRef.on("value", function(snap) {
+	myRef.on("value", function(snap) {
 		$(document).ready(function() {
 			if (snap.val() === true) {
 				console.log("snapval is"+ JSON.stringify(snap.val()));
