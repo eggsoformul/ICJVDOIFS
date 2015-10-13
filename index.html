@@ -228,6 +228,13 @@ input {
 
 				//check if username already set
 				console.log('ID is '+usernameRef.val());
+				usernameRef.on("value", function(snapshot) {
+					if(snapshot) {
+  						console.log(snapshot.val());
+					} else {
+						console.log('no username found');
+					}
+				}
 			} else {
 				console.log('not logged in');
 				$('.loggedIn').hide();
