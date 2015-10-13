@@ -1,2 +1,2 @@
 # ICNVDOIFS
-Inter-Christian Non Varsity Denominated Online Intentional Fellowship Service
+Inter-Christian Junior Varsity Denominated Online Intentional Fellowship Service
