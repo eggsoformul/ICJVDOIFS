@@ -93,34 +93,42 @@ h1 {
 
 </head>
 <body>
-	<div class='jumbo center'>
-		<p class='headline'>Inter-Christian Junior Varsity Denominated Online Intentional Fellowship Service</p>
+	<div class='loggedOut'>
+		<div class='jumbo center'>
+			<p class='headline'>Inter-Christian Junior Varsity Denominated Online Intentional Fellowship Service</p>
+		</div>
+
+		<div class='videoDiv center'>
+			<img class='video' src="img/beach.jpg" />
+		</div>
+
+		<div class='buttonDiv center'>
+			<button type='button' onclick='fbookAuth()' class='fbButton'></button>
+		</div>
+		<hr />
+		<div class='testimonial'>
+			<h1>Testimonials</h1>
+			<p class='quote'><i>"I'm worried" - Kathy Lu</i></p>
+			<p class='quote'><i>"This is my appreciation quote" - Aaron Bowen</i></p>
+			<p class='quote'><i>"Life is like jello - Norman Young</i></p>
+			<p class='quote'><i>"Quote on what? - Phil Chen"</i></p>
+			<p class='quote'><i>"So much pressure - Steven Lin"</i></p>
+
+
+		</div>
+
+
+		<div class='attributionDiv'>
+			<p class='attribution'>brought to you by <a href='https://www.facebook.com/eggsoformul'>Eggs of Ormul</a></p>
+		</div>
 	</div>
-
-	<div class='videoDiv center'>
-		<img class='video' src="img/beach.jpg" />
+	<div class='loggedIn'>
+		<div class='usernameDiv'>
+			<input type="text" id="usernameInput" placeholder="Choose a username" />
+			<input type="submit" onlick="submitUsername" />
+		</div>
+		<div class='thanksDiv'></div>
 	</div>
-
-	<div class='buttonDiv center'>
-		<button type='button' onclick='fbookAuth()' class='fbButton'></button>
-	</div>
-	<hr />
-	<div class='testimonial'>
-		<h1>Testimonials</h1>
-		<p class='quote'><i>"I'm worried" - Kathy Lu</i></p>
-		<p class='quote'><i>"This is my appreciation quote" - Aaron Bowen</i></p>
-		<p class='quote'><i>"Life is like jello - Norman Young</i></p>
-		<p class='quote'><i>"Quote on what? - Phil Chen"</i></p>
-		<p class='quote'><i>"So much pressure - Steven Lin"</i></p>
-
-
-	</div>
-
-
-	<div class='attributionDiv'>
-		<p class='attribution'>brought to you by <a href='https://www.facebook.com/eggsoformul'>Eggs of Ormul</a></p>
-	</div>
-
 
 
 	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
@@ -166,6 +174,23 @@ h1 {
 				}
 			});
 		}
+
+
+
+	var authRef = new Firebase("https://WhereIsWaldo.firebaseio.com/.info/authenticated");
+	authRef.on("value", function(snap) {
+		if (snap.val() === true) {
+			$('.authStatus').text('Logged In');
+			$('.loggedOut').hide();
+			$('.loggedIn').show();
+			$('.regInput').show(); 
+		} else {
+			$('.authStatus').text('Please Log In');
+			$('.loggedIn').hide();
+			$('.loggedOut').show();
+			$('.regInput').hide();
+		}
+	});
 
 	</script>
 </body>
