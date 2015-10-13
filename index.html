@@ -37,10 +37,10 @@ html, body {
 .video {
 	position: absolute;
 	top: 40vh;
-	left: 18vw;
+	left: 25vw;
 	border: 0px;
 	padding: 0px;
-	width: 64vw;
+	width: 50vw;
 	height: 50vh;
 	box-shadow: 7px 7px 7px #343434;
 }
@@ -98,7 +98,7 @@ h1 {
 	</div>
 
 	<div class='videoDiv center'>
-		<img class='video' src="img/eggs.png" />
+		<img class='video' src="img/beach.jpg" />
 	</div>
 
 	<div class='buttonDiv center'>
@@ -127,25 +127,37 @@ h1 {
 
 		var myRef = new Firebase("https://icjvdoifs.firebaseio.com/");
 
-		var authClient = new FirebaseSimpleLogin(myRef, function(error, user) {
-		    if (error) {
-		      // an error occurred while attempting login
-		      console.log(error);
-		    } else if (user) {
-		      // user authenticated with Firebase
-		      userRef = user;
-		      userID = user.uid;
-		      stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
-		      nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID);
-		      nameRef.set(user.displayName);
-		      console.log("User ID: " + user.uid + ", Provider: " + user.provider);
-		    } else {
-		      // user is logged out
-		    }
-		});
+		// var authClient = new FirebaseSimpleLogin(myRef, function(error, user) {
+		//     if (error) {
+		//       // an error occurred while attempting login
+		//       console.log(error);
+		//     } else if (user) {
+		//       // user authenticated with Firebase
+		//       userRef = user;
+		//       userID = user.uid;
+		//       stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
+		//       nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID);
+		//       nameRef.set(user.displayName);
+		//       console.log("User ID: " + user.uid + ", Provider: " + user.provider);
+		//     } else {
+		//       // user is logged out
+		//     }
+		// });
 
 		function fbookAuth() {
-			authClient.login('facebook');
+			myRef.authWithOAuthPopup("facebook", function(error, authData) {
+				if (error) {
+					console.log("Login Failed!", error);
+				} else {
+					console.log("Authenticated successfully with payload:", authData);
+					userRef = user;
+					userID = user.uid;
+					stampRef = new Firebase('https://icjvdoifs.firebaseio.com/userTimes/'+userID);
+					nameRef = new Firebase('https://icjvdoifs.firebaseio.com/userNames/'+userID);
+					nameRef.set(user.displayName);
+					console.log("User ID: " + user.uid + ", Provider: " + user.provider);
+				}
+			});
 		}
 
 	</script>
