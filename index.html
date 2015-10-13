@@ -249,7 +249,7 @@ input {
 	authRef.on("value", function(snap) {
 		$(document).ready(function() {
 			if (snap.val() === true) {
-				console.log('uid is'+snap.uid);
+				console.log('uid is'+snap..val().uid);
 				var unRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+snap.uid+"username");
 
 				//check if username already set
