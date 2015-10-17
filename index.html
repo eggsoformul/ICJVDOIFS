@@ -227,18 +227,11 @@ input {
 		// });
 
 		function fbookAuth() {
-			myRef.authWithOAuthPopup("facebook", function(error, authData) {
+			myRef.authWithOAuthRedirect("facebook", function(error, authData) {
 				if (error) {
 					console.log("Login Failed!", error);
 				} else {
-					console.log("Authenticated successfully with payload:", authData);
-					user = authData;
-					userID = authData.uid;
-					stampRef = new Firebase("https://icjvdoifs.firebaseio.com/userTimes/"+userID);
-					nameRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+userID+"/name");
-					usernameRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+userID+"/username");
-					nameRef.set(authData.facebook.displayName);
-					console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
+
 				}
 			});
 		}
@@ -248,6 +241,14 @@ input {
 	myRef.onAuth(function(snap) {
 		$(document).ready(function() {
 			if (snap) {
+									console.log("Authenticated successfully with payload:", authData);
+					user = authData;
+					userID = authData.uid;
+					stampRef = new Firebase("https://icjvdoifs.firebaseio.com/userTimes/"+userID);
+					nameRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+userID+"/name");
+					usernameRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+userID+"/username");
+					nameRef.set(authData.facebook.displayName);
+					console.log("User ID: " + authData.uid + ", Provider: " + authData.provider);
 				console.log("uid is"+snap.uid);
 				var unRef = new Firebase("https://icjvdoifs.firebaseio.com/userNames/"+snap.uid+"/username");
 
