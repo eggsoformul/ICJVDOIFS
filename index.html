@@ -3116,7 +3116,7 @@ input {
 			<p class="thanks">Thanks for completing the sign up!</p>
 		</div>
 		<div class="comeBackDiv center" style="display: none;">
-			<p class="comeBack">Retrieving your match...</p>
+			<p class="comeBack" id="gettingMatch">Retrieving your match...</p>
 			
 
 			<div id="ha_holder">
@@ -3252,6 +3252,8 @@ input {
 		window.setTimeout(function(){
 			//hide loading el
 			$('#ha_holder').hide();
+      //also the loading
+      $('#gettingMatch').hide();
 			//show result el
 			$('#matchResult').show();
 		},8000);
